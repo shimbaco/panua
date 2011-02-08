@@ -1,0 +1,79 @@
+#forgot_password {
+    margin-top: 30px;
+}
+
+#profile, #home {
+    li.bookmark, li.tag {
+        list-style: none;
+    }
+    section#layout {
+        article {
+            width: 700px;
+            float: left;
+        }
+        aside {
+            width: 250px;
+            float: right;
+        }
+    }
+}
+
+#profile {
+    #info {
+        height: 135px;
+
+        #left {
+            width: 100px;
+            float: left;
+            text-align: center;
+
+            img {
+                margin-bottom: 7px;
+            }
+        }
+        #right {
+            width: 590px;
+            float: right;
+            padding: 1px 5px;
+
+            div#name {
+                font: {
+                    size: 2em;
+                    weight: bold;
+                }
+                margin-bottom: 7px;
+
+                span#name {
+                    color: #8a8b8b;
+                    font-size: 0.9em;
+                }
+            }
+            #url {
+                margin-top: 7px;
+            }
+        }
+    }
+    #bookmark {
+        clear: both;
+        margin-top: 40px;
+    }
+}
+
+#following, #followers {
+    li {
+        width: 700px;
+        list-style: none;
+        img {
+            float: left;
+        }
+        .name-bio {
+            width: 500px;
+            float: left;
+            padding: 3px 10px;
+        }
+        .follow-state {
+            width: 120px;
+            float: left;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+= render 'layouts/head'
+
+#container
+  #header
+    #title
+      = link_to 'Panua', root_path
+    %ul
+      - if user_signed_in?
+        %li
+          = link_to t('panua.layouts.add'), new_bookmark_path
+        %li
+          = link_to t('panua.layouts.home'), home_path
+        %li
+          = link_to "#{current_user.screen_name}", profile_path(current_user.screen_name)
+        %li
+          = link_to t('panua.layouts.settings'), settings_edit_user_path
+        %li
+          = link_to t('panua.layouts.logout'), logout_path
+      - else
+        %li
+          = link_to t('panua.words.sign_up'), signup_path
+        %li
+          = link_to t('panua.words.sign_in'), login_path
+  #content
+    - flash.each do |name, msg|
+      #flash #{msg}
+    = yield
+  #footer
+    %ul
+      %li #{t('panua.layouts.written_by')} #{link_to '@bojovs', 'http://twitter.com/bojovs'}
+      %li 2011 Panua
+
+= render 'layouts/javascript'

@@ -1,0 +1,15 @@
+#home
+  %section#layout
+    %article
+      %h1 #{t('panua.words.timeline')}
+      - if @bookmarks.present?
+        = render 'users/bookmarks'
+        = will_paginate @bookmarks, :previous_label => t('panua.will_paginate.prev'), :next_label => t('panua.will_paginate.next')
+      - else
+        #empty
+          %h1 #{t('panua.users.empty.bookmarks.home.title')}
+          %p #{t('panua.users.empty.bookmarks.home.body')}
+    %aside
+      %p #{t('panua.words.bookmarks')}: #{current_user.bookmark_ids.count}
+      %p #{link_to(t('panua.words.following'), following_followers_path(current_user.screen_name, 'following'))}: #{current_user.following_ids.count}
+      %p #{link_to(t('panua.words.followers'), following_followers_path(current_user.screen_name, 'followers'))}: #{current_user.follower_ids.count}

@@ -1,0 +1,15 @@
+%h1 #{t('panua.comments.reply')}
+%p
+  = simple_format(auto_link_urls(h(@parent_comment.body)))
+= form_for(@child_comment, :url => create_child_comment_path) do |f|
+  = f.error_messages
+  = hidden_field_tag :entry_id, @parent_comment.entry_id
+  = hidden_field_tag :parent_id, params[:parent_id]
+  %dl
+    %dt
+      = f.label :body
+    %dd
+      = f.text_area :body
+  #button
+    = content_tag :button, :type => :submit do
+      save

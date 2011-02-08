@@ -1,0 +1,26 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  panua:
+    login: "login"
+    logout: "logout"
+    signup: "sign up"
+    forgot_your_password: "Forgot your password?"
+    home: "home"
+    profile: "profile"
+    settings:
+      index: "settings"
+      users:
+        edit: "users"
+      tags:
+        index: "tag"
+    bookmark:
+      add: "add"
+      edit: "edit"
+      already_existed: "Your URL already existed."
+
+  activemodel:
+    attributes:
+      user:
+        login: "Username or email"

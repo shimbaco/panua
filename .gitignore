@@ -1,0 +1,15 @@
+config/application.yml
+config/mongoid.yml
+
+public/stylesheets/*.css
+
+db/*.sqlite3
+log/*.log
+tmp/**/*
+
+panua.iml
+
+.bundle
+.rvmrc
+.idea/
+.DS_Store

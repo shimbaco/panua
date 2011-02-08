@@ -1,0 +1,28 @@
+#settings
+  = render 'settings/header'
+  %section
+    %article
+      = form_for([:settings, @tag]) do |f|
+        = f.error_messages
+        %dl
+          %dt
+            = f.label :name, t('panua.words.name')
+          %dd
+            = f.text_field :name
+        %dl
+          %dt
+            = f.label :phonetic_name, t('panua.tags.attributes.phonetic_name')
+          %dd
+            = f.text_field :phonetic_name
+        %dl
+          %dt
+            = f.label :about, t('panua.tags.attributes.about')
+          %dd
+            = f.text_field :about
+        #button
+          = content_tag :button, :type => :submit do
+            = t('panua.words.submit')
+
+    = render :layout => 'settings/sidebar' do
+      %h1 #{t('panua.tags.attributes.phonetic_name')}
+      %p #{t('panua.settings.tags.phonetic_name.body')}

@@ -1,0 +1,45 @@
+.comments
+  .left
+    .image
+      = image_tag(c.user.gravatar_image_path(35))
+  .right
+    .info
+      .top
+        %span.screen_name
+          = link_to c.user.screen_name, profile_path(c.user.screen_name)
+        - if c.user.name.present?
+          %span.name
+            = c.user.name
+        - if c.user.bio.present?
+          %span.shorten-bio
+            = c.user.bio.to_s.truncate(30)
+      .bottom
+        %span.datetime
+          = l(c.created_at)
+        - if user_signed_in? && last == false
+          %span.reply
+            = link_to t('panua.comments.reply'), new_child_comment_path(c.id)
+        %span.vote
+          %span.like
+            - if user_signed_in?
+              - if current_user.like? c
+                %button.like.pushed{'comment-id' => c.id} b
+              - else
+                %button.like{'comment-id' => c.id} b
+            - else
+              %span.like-square b
+            %span.like_count{'comment-id' => c.id}
+              = c.like_user_ids.count
+          %span.dislike
+            - if user_signed_in?
+              - if current_user.dislike? c
+                %button.dislike.pushed{'comment-id' => c.id} q
+              - else
+                %button.dislike{'comment-id' => c.id} q
+            - else
+              %span.dislike-square q
+            %span.dislike_count{'comment-id' => c.id}
+              = c.dislike_user_ids.count
+    .comment
+      .body
+        = simple_format(auto_link_urls(h(c.body)))

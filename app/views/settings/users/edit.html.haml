@@ -1,0 +1,39 @@
+#settings
+  = render 'settings/header'
+
+  %section
+    %article
+      = form_for(@user, :url => settings_update_user_path) do |f|
+        = f.error_messages
+        %dl
+          %dt
+            = f.label :name, t('panua.words.name')
+          %dd
+            = f.text_field :name
+        %dl
+          %dt
+            = f.label :screen_name, t('panua.users.attributes.screen_name')
+          %dd
+            = f.text_field :screen_name
+        %dl
+          %dt
+            = f.label :bio, t('panua.users.attributes.bio')
+          %dd
+            = f.text_field :bio
+        %dl
+          %dt
+            = f.label :url, t('panua.words.url')
+          %dd
+            = f.text_field :url
+        %dl
+          %dt
+            = f.label :language, t('panua.users.attributes.language')
+          %dd
+            = f.select 'language', [['日本語', 'ja'], ['英語', 'en']]
+        #button
+          = content_tag :button, :type => :submit do
+            = t('panua.words.submit')
+
+    = render :layout => 'settings/sidebar' do
+      %h1 #{t('panua.settings.users.profile_image.title')}
+      %p #{t('panua.settings.users.profile_image.body_html', :url => link_to('Gravatar', 'http://gravatar.com/'), :email => current_user.email)}

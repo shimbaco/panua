@@ -1,0 +1,93 @@
+#entry {
+    section {
+        margin-top: 30px;
+
+        article#comment {
+            width:650px;
+
+            .children {
+                padding-left: 40px;
+                border-left: 1px solid #999999;
+            }
+            .comments {
+                margin-bottom: 15px;
+                position: relative;
+                clear: both;
+                overflow: hidden;
+
+                .left {
+                    float: left;
+                }
+                .right {
+                    float: left;
+                    padding-left: 5px;
+
+                    .info {
+                        padding: 3px 0;
+                        font-size: 0.9em;
+
+                        .name, .datetime, .shorten-bio {
+                            color: #787979;
+                        }
+                        .top {
+                            .screen_name, .name {
+                                font-weight: bold;
+                            }
+                        }
+                        .bottom {
+                            margin-top: 3px;
+
+                            .reply {
+                                margin-right: 3px;
+                            }
+                            .vote {
+                                width: 35px;
+                                margin-top: 5px;
+
+                                button {
+                                    width: 17px;
+                                    height: 17px;
+                                    padding: 0;
+                                    font-weight: bold;
+                                }
+                                button.like, .like-square {
+                                    color: #44b148;
+                                    margin-bottom: 3px;
+                                }
+                                button.dislike, .dislike-square {
+                                    color: #ff484e;
+                                }
+                                .like-square, .dislike-square {
+                                    display: inline-block;
+                                    margin: 0 2px 0 5px;
+                                    height: 13px;
+                                    font: {
+                                        size: 0.8em;
+                                        weight: bold;
+                                    }
+                                    text-align: center;
+                                }
+                                .like_count, .dislike_count {
+                                    font-size: 0.8em;
+                                }
+                            }
+                        }
+                    }
+                    .comment {
+                        .body {
+                            width: 446px;
+                            margin: 6px 0;
+
+                            p {
+                                line-height: 1.4em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        aside {
+            width: 300px;
+        }
+    }
+}

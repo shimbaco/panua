@@ -1,0 +1,47 @@
+= form_for(@bookmark) do |f|
+  = f.error_messages
+  = hidden_field_tag :bookmarklet, 'true' if (params[:bookmarklet] == 'true') or (@bookmarklet == true)
+  - if params[:action] == 'new' or params[:action] == 'create'
+    %dl
+      %dt
+        = f.label :url, t('panua.words.url')
+      %dd
+        = f.text_field :url, :autofocus => true
+  - else
+    = f.hidden_field :url
+  %dl
+    %dt
+      = f.label :title, t('panua.bookmarks.attributes.title')
+    %dd
+      = f.text_field :title
+  %dl
+    %dt
+      = f.label :note, t('panua.bookmarks.attributes.note')
+    %dd
+      = f.text_field :note
+  %dl
+    %dt
+      = label_tag :tag_name, t('panua.bookmarks.attributes.tags')
+    %dd
+      = hidden_field_tag :old_tag_name, (@tag_str if params[:action] == 'edit')
+      = text_field_tag :tag_name, (@tag_str if params[:action] == 'edit')
+  - if params[:action] == 'new' or params[:action] == 'create'
+    %dl
+      %dt
+        = label_tag :comment_body, t('panua.bookmarks.attributes.comment')
+      %dd
+        = text_area_tag :comment_body
+  %dl
+    %dt
+      = f.label :private, t('panua.bookmarks.attributes.private')
+    %dd
+      = f.check_box :private
+  #button
+    = content_tag :button, :type => :submit do
+      = t('panua.words.submit')
+
+- content_for :javascript do
+  = javascript_include_tag 'autocomplete'
+  - if @tags.present?
+    :javascript
+      ac(#{@tags});

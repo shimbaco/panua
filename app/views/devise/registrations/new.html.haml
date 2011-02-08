@@ -1,0 +1,28 @@
+%h1 #{t('panua.words.sign_up')}
+
+- form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  %dl
+    %dt
+      = f.label :email
+    %dd
+      = f.text_field :email, :autofocus => true
+  %dl
+    %dt
+      = f.label :screen_name
+    %dd
+      = f.text_field :screen_name
+  %dl
+    %dt
+      = f.label :password
+    %dd
+      = f.password_field :password
+  %dl
+    %dt
+      = f.label :password_confirmation
+    %dd
+      = f.password_field :password_confirmation
+  #button
+    = content_tag :button, :type => :submit do
+      = t('panua.words.registration')
+  = render :partial => 'devise/shared/links'

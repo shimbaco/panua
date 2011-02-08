@@ -1,0 +1,40 @@
+#root {
+    li {
+        list-style: none;
+    }
+
+    article {
+        float: left;
+        width: 500px;
+
+        p {
+            line-height: 1.4em;
+        }
+        ul {
+            li:first-child {
+                margin: 0;
+            }
+            li {
+                margin: 30px 0 15px;
+
+                b {
+                    display: block;
+                    margin-bottom: 7px;
+                }
+            }
+        }
+    }
+    aside {
+        float: left;
+        width: 450px;
+
+        ul#bookmarks.home-index {
+            .image {
+                width: 50px;
+            }
+            .data {
+                width: 400px;
+            }
+        }
+    }
+}

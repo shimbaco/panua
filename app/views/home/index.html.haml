@@ -1,0 +1,20 @@
+#root
+  %article
+    %h1
+      = t('panua.home.index.message')
+    %p
+      = t('panua.home.index.summary')
+    %h1
+      = t('panua.home.index.features.title')
+    %ul
+      %li
+        %b #{t('panua.home.index.features._1.title')}
+        %p #{t('panua.home.index.features._1.body')}
+      %li
+        %b #{t('panua.home.index.features._2.title')}
+      %li
+        %b #{t('panua.home.index.features._3.title')}
+        %p #{t('panua.home.index.features._3.body_html', :link => link_to('このようになっています', 'http://twitter.com/bojovs'))}
+  %aside
+    %h1 #{t('panua.home.index.latest_bookmarks')}
+    = render 'users/bookmarks'

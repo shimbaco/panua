@@ -1,0 +1,13 @@
+%li
+  = image_tag(f.gravatar_image_path(40))
+  .name-bio
+    .name
+      %span.screen_name #{link_to f.screen_name, profile_path(f.screen_name)}
+      - if f.name.present?
+        %span.name #{f.name}
+    - if f.bio.present?
+      .bio
+        = f.bio
+  .follow-state
+    - if current_user != f
+      = render 'users/follow_state', {:user => f}

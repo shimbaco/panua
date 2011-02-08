@@ -1,0 +1,6 @@
+#nav
+  %ul
+    %li{:class => params[:controller] == 'settings/users' && 'active'}
+      = link_to t('panua.words.users'), settings_edit_user_path
+    %li{:class => params[:controller] == 'settings/tags' && 'active'}
+      = link_to t('panua.words.tags'), settings_tags_path

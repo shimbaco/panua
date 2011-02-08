@@ -1,0 +1,34 @@
+%ul#bookmarks{:class => params[:action] == 'index' && 'home-index'}
+  - @bookmarks.each do |b|
+    %li.bookmark
+      .image
+        - if params[:action] == 'index' || params[:action] == 'home'
+          = image_tag(b.user.gravatar_image_path(50))
+      .data
+        .link
+          = link_to b.title, b.entry.url, :class => 'title'
+        %ul.tags
+          - b.tags.each do |t|
+            %li.tag
+              = link_to t.name, "/#{b.user.screen_name}/tags/#{t.name}"
+        - if user_signed_in? && params[:action] == 'profile' && b.user == current_user
+          %p.note
+            = b.note
+        - elsif b.comments.present?
+          .comment
+            = simple_format(auto_link_urls(h(b.comments[0].body)))
+        .footer
+          - if params[:action] == 'index' || params[:action] == 'home'
+            .user
+              %span.screen_name
+                = link_to b.user.screen_name, profile_path(b.user.screen_name)
+              %span.name
+                - if b.user.name.present?
+                  = b.user.name
+          %span.datetime
+            = l(b.created_at)
+          %span.bookmark-users-count
+            = link_to b.entry.bookmark_ids.count.to_s + (b.entry.bookmark_ids.count > 1 ? ' users' : ' user'), entry_path(b.entry_id)
+          - if b.user.id == current_user.try(:id)
+            %span.edit
+              = link_to t('panua.words.edit'), edit_bookmark_path(b.id)

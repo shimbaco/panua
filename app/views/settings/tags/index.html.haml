@@ -1,0 +1,7 @@
+#settings
+  = render 'settings/header'
+
+  %ul
+    - @tags.each do |t|
+      %li
+        = link_to t.name, edit_settings_tag_path(t.id)

@@ -1,0 +1,12 @@
+#following
+  %h1 #{t('panua.users.following.title', :screen_name => @user.screen_name)}
+  - if @user.following.present?
+    %ul
+      - @user.following.each do |f|
+        = render 'users/following_followers', {:f => f}
+  - else
+    #empty
+      %p #{t('panua.users.empty.following')}
+
+- content_for :javascript do
+  = javascript_include_tag 'follow'

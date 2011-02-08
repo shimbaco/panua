@@ -1,0 +1,48 @@
+#entry
+  %h1
+    = link_to @entry.title, @entry.url
+  %p
+    = @entry.url
+  %section
+    %article#comment
+      %h1 コメント
+      - if @comments.present?
+        .parents
+          - @comments.desc(:score).each do |c1|
+            = render 'entries/comments', {:c => c1, :last => false}
+            - if c1.children.present?
+              .children
+                - c1.children.desc(:score).each do |c2|
+                  = render 'entries/comments', {:c => c2, :last => false}
+                  - if c2.children.present?
+                    .children
+                      - c2.children.desc(:score).each do |c3|
+                        = render 'entries/comments', {:c => c3, :last => false}
+                        - if c3.children.present?
+                          .children
+                            - c3.children.desc(:score).each do |c4|
+                              = render 'entries/comments', {:c => c4, :last => false}
+                              - if c4.children.present?
+                                .children
+                                  - c4.children.desc(:score).each do |c5|
+                                    = render 'entries/comments', {:c => c5, :last => true}
+
+      - else
+        #empty
+          %h1 #{t('panua.entries.empty.comments.title')}
+      - if user_signed_in?
+        = form_for(Comment.new) do |f|
+          = f.error_messages
+          = hidden_field_tag :entry_id, params[:id]
+          %dl
+            %dt
+              = f.label :body
+            %dd
+              = f.text_area :body
+          #button
+            = content_tag :button, :type => :submit do
+              save
+    %aside
+
+- content_for :javascript do
+  = javascript_include_tag 'vote'

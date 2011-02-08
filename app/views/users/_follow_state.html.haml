@@ -1,0 +1,6 @@
+- if current_user.following? user.id
+  %button.remove.pushed{'user-id' => user.id}
+    following
+- else
+  %button.follow{'user-id' => user.id}
+    follow
