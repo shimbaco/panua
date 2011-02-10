@@ -1,0 +1,11 @@
+defaults: &defaults
+  reserved_screen_name_list: []
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
