@@ -11,4 +11,9 @@
 = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'
 = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/jquery-ui.min.js'
 = javascript_include_tag 'flash'
+:javascript
+  $(document).ajaxSend(function(e, xhr, options) {
+    var token = $("meta[name='csrf-token']").attr("content");
+    xhr.setRequestHeader("X-CSRF-Token", token);
+  });
 = yield :javascript
