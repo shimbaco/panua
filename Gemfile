@@ -24,8 +24,8 @@ group :test, :development do
 end
 
 group :development do
-  gem 'ruby-debug19'
-  gem 'awesome_print'
+#  gem 'ruby-debug19'
+#  gem 'awesome_print'
 end
 
 group :test do
