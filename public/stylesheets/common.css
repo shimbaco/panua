@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1.0; }
+
+body {
+  text-align: center;
+  font-size: 14px;
+  font-family: "arial", sans-serif; }
+
+a {
+  text-decoration: none;
+  color: #2b81d5; }
+
+span.bookmark-users-count {
+  color: #6f7b8b;
+  text-decoration: underline;
+  font-size: 0.9em; }
+
+#container, #bookmarklet-container {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto; }
+
+#container {
+  width: 950px; }
+
+#bookmarklet-container {
+  width: 500px; }
+  #bookmarklet-container #content {
+    margin: 0 10px; }
+
+#header ul, #footer ul {
+  text-align: right; }
+  #header ul li, #footer ul li {
+    display: inline; }
+
+#header {
+  height: 52px;
+  margin: 30px 0 50px; }
+  #header #title {
+    width: 200px;
+    float: left;
+    font-family: 'Arvo', arial, serif;
+    font-size: 3.7em; }
+    #header #title a {
+      color: #000000;
+      -webkit-transition: color 0.5s linear; }
+      #header #title a:hover {
+        color: #23427c; }
+  #header ul {
+    width: 750px;
+    height: 52px;
+    float: left;
+    line-height: 52px; }
+    #header ul li {
+      margin-left: 5px; }
+
+#footer {
+  clear: both;
+  margin: 50px 0; }
+  #footer ul {
+    width: 100%; }
+    #footer ul li {
+      margin-left: 15px; }
+
+#content {
+  overflow: hidden; }
+
+h1 {
+  font-size: 1.8em;
+  margin: 0.8em 0;
+  color: #242626; }
+
+h2 {
+  font-size: 1.4em;
+  margin: 0.83em 0px; }
+
+li {
+  list-style: inside;
+  margin: 0.5em 0; }
+
+button {
+  padding: 6px 0;
+  width: 80px;
+  border: solid 1px #999999;
+  cursor: pointer;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#e4e6e6)); }
+
+button.pushed {
+  background: none;
+  background-color: #d9dcdc; }
+
+form {
+  width: 400px; }
+  form input, form textarea {
+    padding: 0 3px;
+    border: 1px solid #777e34;
+    width: 400px; }
+  form input {
+    font-size: 1.1em;
+    height: 2em; }
+  form input[type='checkbox'] {
+    height: 1em;
+    width: 1em; }
+  form textarea {
+    height: 10em;
+    line-height: 1.3em; }
+  form label {
+    font-weight: bold; }
+  form dl {
+    margin-bottom: 1.5em; }
+  form dt {
+    margin-bottom: 0.3em; }
+  form #button {
+    text-align: center; }
+    form #button button {
+      width: 150px;
+      height: 30px;
+      font-size: 1.4em; }
+
+#flash {
+  width: 800px;
+  position: absolute;
+  top: 95px;
+  margin-left: -400px;
+  left: 50%;
+  height: 20px;
+  background-color: #9edd8a;
+  text-align: center; }
+
+#empty h1 {
+  font-size: 1.2em; }
+
+ul#bookmarks li.bookmark {
+  height: 100px;
+  margin-bottom: 15px; }
+  ul#bookmarks li.bookmark .image {
+    float: left; }
+    ul#bookmarks li.bookmark .image img {
+      width: 50px; }
+  ul#bookmarks li.bookmark .data {
+    width: 640px;
+    float: left;
+    padding: 3px 5px; }
+    ul#bookmarks li.bookmark .data .link {
+      font-size: 1.2em;
+      /*weight: bold;*/
+      margin-bottom: 7px; }
+    ul#bookmarks li.bookmark .data ul.tags {
+      margin-bottom: 10px; }
+      ul#bookmarks li.bookmark .data ul.tags li {
+        display: inline;
+        margin-right: 7px; }
+        ul#bookmarks li.bookmark .data ul.tags li a {
+          color: #2c6997; }
+    ul#bookmarks li.bookmark .data .user {
+      margin-bottom: 3px; }
+      ul#bookmarks li.bookmark .data .user span.name {
+        color: #787979; }
+    ul#bookmarks li.bookmark .data .footer {
+      font-size: 0.9em; }

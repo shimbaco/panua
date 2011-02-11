@@ -1,0 +1,49 @@
+#forgot_password {
+  margin-top: 30px; }
+
+#profile li.bookmark, #profile li.tag, #home li.bookmark, #home li.tag {
+  list-style: none; }
+#profile section#layout article, #home section#layout article {
+  width: 700px;
+  float: left; }
+#profile section#layout aside, #home section#layout aside {
+  width: 250px;
+  float: right; }
+
+#profile #info {
+  height: 135px; }
+  #profile #info #left {
+    width: 100px;
+    float: left;
+    text-align: center; }
+    #profile #info #left img {
+      margin-bottom: 7px; }
+  #profile #info #right {
+    width: 590px;
+    float: right;
+    padding: 1px 5px; }
+    #profile #info #right div#name {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 7px; }
+      #profile #info #right div#name span#name {
+        color: #8a8b8b;
+        font-size: 0.9em; }
+    #profile #info #right #url {
+      margin-top: 7px; }
+#profile #bookmark {
+  clear: both;
+  margin-top: 40px; }
+
+#following li, #followers li {
+  width: 700px;
+  list-style: none; }
+  #following li img, #followers li img {
+    float: left; }
+  #following li .name-bio, #followers li .name-bio {
+    width: 500px;
+    float: left;
+    padding: 3px 10px; }
+  #following li .follow-state, #followers li .follow-state {
+    width: 120px;
+    float: left; }

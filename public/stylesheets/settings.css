@@ -1,0 +1,20 @@
+#settings #nav {
+  margin-bottom: 30px; }
+  #settings #nav ul .active {
+    text-decoration: underline; }
+  #settings #nav ul li {
+    display: inline;
+    margin-right: 7px; }
+#settings article {
+  width: 600px;
+  float: left; }
+#settings aside {
+  width: 340px;
+  float: right;
+  background-color: #e8dfc6;
+  padding: 3px 5px; }
+  #settings aside h1 {
+    font-size: 1.2em;
+    margin: 0.6em 0; }
+  #settings aside p {
+    line-height: 1.4em; }

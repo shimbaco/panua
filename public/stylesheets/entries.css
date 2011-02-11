@@ -1,0 +1,57 @@
+#entry section {
+  margin-top: 30px; }
+  #entry section article#comment {
+    width: 650px; }
+    #entry section article#comment .children {
+      padding-left: 40px;
+      border-left: 1px solid #999999; }
+    #entry section article#comment .comments {
+      margin-bottom: 15px;
+      position: relative;
+      clear: both;
+      overflow: hidden; }
+      #entry section article#comment .comments .left {
+        float: left; }
+      #entry section article#comment .comments .right {
+        float: left;
+        padding-left: 5px; }
+        #entry section article#comment .comments .right .info {
+          padding: 3px 0;
+          font-size: 0.9em; }
+          #entry section article#comment .comments .right .info .name, #entry section article#comment .comments .right .info .datetime, #entry section article#comment .comments .right .info .shorten-bio {
+            color: #787979; }
+          #entry section article#comment .comments .right .info .top .screen_name, #entry section article#comment .comments .right .info .top .name {
+            font-weight: bold; }
+          #entry section article#comment .comments .right .info .bottom {
+            margin-top: 3px; }
+            #entry section article#comment .comments .right .info .bottom .reply {
+              margin-right: 3px; }
+            #entry section article#comment .comments .right .info .bottom .vote {
+              width: 35px;
+              margin-top: 5px; }
+              #entry section article#comment .comments .right .info .bottom .vote button {
+                width: 17px;
+                height: 17px;
+                padding: 0;
+                font-weight: bold; }
+              #entry section article#comment .comments .right .info .bottom .vote button.like, #entry section article#comment .comments .right .info .bottom .vote .like-square {
+                color: #44b148;
+                margin-bottom: 3px; }
+              #entry section article#comment .comments .right .info .bottom .vote button.dislike, #entry section article#comment .comments .right .info .bottom .vote .dislike-square {
+                color: #ff484e; }
+              #entry section article#comment .comments .right .info .bottom .vote .like-square, #entry section article#comment .comments .right .info .bottom .vote .dislike-square {
+                display: inline-block;
+                margin: 0 2px 0 5px;
+                height: 13px;
+                font-size: 0.8em;
+                font-weight: bold;
+                text-align: center; }
+              #entry section article#comment .comments .right .info .bottom .vote .like_count, #entry section article#comment .comments .right .info .bottom .vote .dislike_count {
+                font-size: 0.8em; }
+        #entry section article#comment .comments .right .comment .body {
+          width: 446px;
+          margin: 6px 0; }
+          #entry section article#comment .comments .right .comment .body p {
+            line-height: 1.4em; }
+  #entry section aside {
+    width: 300px; }
