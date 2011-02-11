@@ -3,8 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.4'
 
 gem 'mongoid', '2.0.0.beta.20'
-gem 'bson_ext', '1.1.4'
 gem 'mongoid-tree', :require => 'mongoid/tree'
+gem 'bson_ext', '1.2.1'
 
 gem 'devise', '1.1.5'
 
