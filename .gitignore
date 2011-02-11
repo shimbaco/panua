@@ -1,5 +1,4 @@
 config/application.yml
-config/mongoid.yml
 
 public/stylesheets/*.css
 
