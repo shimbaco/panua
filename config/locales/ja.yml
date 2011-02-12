@@ -99,7 +99,7 @@ ja:
   activemodel:
     attributes:
       user:
-        login: "ユーザ名またはメールアドレス"
+        login: "ユーザー名またはメールアドレス"
         email: "メールアドレス"
         screen_name: "ユーザー名"
         password: 'パスワード'

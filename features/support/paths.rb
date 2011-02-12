@@ -14,6 +14,8 @@ module NavigationHelpers
       '/'
     when "ユーザー登録"
       signup_path
+    when "ログイン"
+      login_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
