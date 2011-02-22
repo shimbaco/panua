@@ -16,6 +16,10 @@ module NavigationHelpers
       signup_path
     when "ログイン"
       login_path
+    when "ホーム"
+      home_path
+    when "ブックマーク追加"
+      new_bookmark_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

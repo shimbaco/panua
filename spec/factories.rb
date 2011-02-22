@@ -26,7 +26,7 @@ end
 
 Factory.define :user, :class => User do |f|
   f.email 'bojovs@gmail.com'
-  f.password 'bojovs'
+  f.password 'svojob'
   f.name 'Koji Shinba'
   f.screen_name 'bojovs'
   f.language 'ja'
