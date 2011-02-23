@@ -1,0 +1,12 @@
+%p
+  = t('panua.mailer.hello', :screen_name => @resource.screen_name)
+
+%p
+  = t('panua.mailer.confirmation.body')
+
+%p
+  = link_to confirmation_url(@resource, :confirmation_token => @resource.confirmation_token), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+
+Panua
+%br
+= link_to 'http://panua.heroku.com', 'http://panua.heroku.com'

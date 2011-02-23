@@ -8,6 +8,7 @@ ja:
   panua:
     forgot_your_password: 'パスワードを忘れた？'
     resend_confirmation_instructions: '確認メールの再送'
+    reset_password: 'パスワードの再設定'
     words:
       bookmarks: 'ブックマーク'
       edit: '編集'
@@ -58,8 +59,15 @@ ja:
       logout: "ログアウト"
       add: '追加'
       home: 'ホーム'
-      settings: "設定"
+      settings: '設定'
       written_by: '製作 : '
+    mailer:
+      hello: 'こんにちは、%{screen_name}さん'
+      confirmation:
+        body: '下のURLにアクセスすると、登録したアカウントが有効になります。'
+      reset_password:
+        body1: '下のURLからパスワードの再設定ができます。'
+        body2: 'このメールに心当たりがない場合は、無視してください。'
     settings:
       tags:
         phonetic_name:

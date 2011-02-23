@@ -3,23 +3,105 @@
 
 en:
   panua:
-    login: "login"
-    logout: "logout"
-    signup: "sign up"
-    forgot_your_password: "Forgot your password?"
-    resend_confirmation_instructions: "Didn't receive confirmation instructions?"
-    home: "home"
-    profile: "profile"
+    forgot_your_password: 'パスワードを忘れた？'
+    resend_confirmation_instructions: '確認メールの再送'
+    reset_password: 'パスワードの再設定'
+    words:
+      bookmarks: 'ブックマーク'
+      edit: '編集'
+      following: 'フォロー'
+      followers: 'フォロワー'
+      name: '名前'
+      registration: '登録'
+      send: '送信'
+      sign_in: 'ログイン'
+      sign_up: 'ユーザー登録'
+      submit: '保存'
+      tags: 'タグ'
+      timeline: 'タイムライン'
+      url: 'URL'
+      users: 'ユーザー'
+    bookmarks:
+      edit: 'ブックマークの編集'
+      new: 'ブックマークの追加'
+      attributes:
+        title: 'タイトル'
+        note: 'ノート'
+        tags: 'タグ (カンマ区切り)'
+        comment: 'コメント'
+        private: '非公開'
+    comments:
+      reply: '返信'
+    entries:
+      empty:
+        comments:
+          title: 'コメントはありません'
+    home:
+      index:
+        message: 'いま、何を見ていますか？'
+        summary: 'Panuaはソーシャルブックマークサービスです。自分のブックマークを管理したり、関心のある人が、今、どんなウェブページをブックマークしているのかを知ることができます。'
+        features:
+          title: 'できること'
+          _1:
+            title: 'ブックマークの管理ができます。'
+            body: '人に見せたくないブックマークは非公開にすることもできます。'
+          _2:
+            title: 'フォローした人のブックマークをタイムライン上で見ることができます。'
+          _3:
+            title: 'エントリーページで他の人のコメントを見ることができます。'
+            body_html: 'そのページに対して他の人がどう思ったのかを知ることができます。コメントに返信をしたり、好きなコメントに一票投じることもできます。例えばこのページのエントリーページは%{link}。'
+        latest_bookmarks: '最新ブックマーク'
+    layouts:
+      title: 'Panua - ソーシャルブックマーク'
+      logout: "ログアウト"
+      add: '追加'
+      home: 'ホーム'
+      settings: "設定"
+      written_by: '製作 : '
+    mailer:
+      hello: 'こんにちは、%{screen_name}さん'
+      confirmation:
+        body: '下のURLにアクセスすると登録したアカウントが有効になります。'
+      reset_password:
+        body1: 'Someone has requested a link to change your password, and you can do this through the link below.'
+        body2: "If you didn't request this, please ignore this email."
     settings:
-      index: "settings"
-      users:
-        edit: "users"
       tags:
-        index: "tag"
-    bookmark:
-      add: "add"
-      edit: "edit"
-      already_existed: "Your URL already existed."
+        phonetic_name:
+          body: 'ブックマークを追加するとき、この値を使用してタグの名前を補完します。'
+      users:
+        profile_image:
+          title: 'プロフィール画像について'
+          body_html: 'プロフィール画像には%{url}を使用しています。使用しているメールアドレスは %{email} です。'
+    tags:
+      attributes:
+        phonetic_name: '補完名について'
+        about: '説明'
+    users:
+      attributes:
+        screen_name: 'ユーザー名'
+        bio: '自己紹介'
+        language: '言語'
+      empty:
+        bookmarks:
+          profile:
+            title: 'ブックマークはありません'
+            body: '右上の「追加」からブックマークを追加することができます。'
+          home:
+            title: 'フォローしている人のブックマークはありません'
+            body: 'ユーザーをフォローすると、ここにそのユーザーのブックマークが表示されます。'
+        following: 'フォローしている人はいません。'
+        followers: 'フォロワーはいません。'
+        tags:
+          title: 'タグはありません'
+          body: 'ブックマークを追加するときにタグを入力して保存すると、そのタグがここに表示されます。'
+      following:
+        title: '%{screen_name}がフォローしている人'
+      followers:
+        title: '%{screen_name}をフォローしている人'
+    will_paginate:
+      prev: '前のページ'
+      next: '次のページ'
 
   activemodel:
     attributes:
