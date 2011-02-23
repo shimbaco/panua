@@ -50,7 +50,7 @@
                 font-size: 0.8em; }
         #entry section article#comment .comments .right .comment .body {
           width: 446px;
-          margin: 6px 0; }
+          margin-bottom: 6px; }
           #entry section article#comment .comments .right .comment .body p {
             line-height: 1.4em; }
   #entry section aside {
