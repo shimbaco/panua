@@ -2,10 +2,10 @@
     //フォロー
     $('.follow-state button.follow').live('click', function() {
         var button = $(this);
-        var user_id = button.attr('user-id');
+        var userId = button.attr('user-id');
         $.ajax({
             type: 'POST',
-            url: '/users/follow/' + user_id,
+            url: '/users/follow/' + userId,
             success: function() {
                 button.removeClass('follow').addClass('remove pushed').text('following');
             }
@@ -14,17 +14,17 @@
     });
 
     //フォローしてる人のボタンにカーソルを乗せたらremoveと表示する。離れたらもとに戻す(followingと表示する)。
-    var remove_button = $('.follow-state button.remove');
-    remove_button.live('mouseover', function() {$(this).text('remove');});
-    remove_button.live('mouseout', function() {$(this).text('following');});
+    var removeButton = $('.follow-state button.remove');
+    removeButton.live('mouseover', function() {$(this).text('remove');});
+    removeButton.live('mouseout', function() {$(this).text('following');});
 
     //リムーブ
     $('.follow-state button.remove').live('click', function() {
         var button = $(this);
-        var user_id = button.attr('user-id');
+        var userId = button.attr('user-id');
         $.ajax({
             type: 'DELETE',
-            url: '/users/remove/' + user_id,
+            url: '/users/remove/' + userId,
             success: function() {
                 button.removeClass('remove pushed').addClass('follow').text('follow');
             }

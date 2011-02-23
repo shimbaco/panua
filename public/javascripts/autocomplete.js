@@ -17,11 +17,11 @@ function ac(data) {
                 source: function( request, response ) {
                     // autocomplete()のsourceに渡すデータには
                     // labelかvalueが含まれていないといけないので、新しく配列を作ることにした。
-                    var renamed_data = [];
+                    var renamedData = [];
                     $.each(data, function (k,v) {
-                        renamed_data.push({label: v.phonetic_name, value: v.name});
+                        renamedData.push({label: v.phonetic_name, value: v.name});
                     });
-                    response($.ui.autocomplete.filter(renamed_data, extractLast(request.term)));
+                    response($.ui.autocomplete.filter(renamedData, extractLast(request.term)));
                 },
                 focus: function(event, ui) {
                     return false;

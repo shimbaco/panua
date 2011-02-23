@@ -1,84 +1,84 @@
 (function($) {
-    var like_button = $('button.like');
-    var dislike_button = $('button.dislike');
-    var this_like_button = function(comment_id) {
-        return like_button.filter('[comment-id="' + comment_id + '"]');
+    var likeButton = $('button.like');
+    var dislikeButton = $('button.dislike');
+    var thisLikeButton = function(commentId) {
+        return likeButton.filter('[comment-id="' + commentId + '"]');
     };
-    var this_dislike_button = function(comment_id) {
-        return dislike_button.filter('[comment-id="' + comment_id + '"]');
-    };
-
-    var like_count_inc = function (comment_id, num) {
-        var like_count = $('span.like_count[comment-id="' + comment_id + '"]');
-        like_count.text(parseInt(like_count.text()) + (num));
-    };
-    var dislike_count_inc = function (comment_id, num) {
-        var dislike_count = $('span.dislike_count[comment-id="' + comment_id + '"]');
-        dislike_count.text(parseInt(dislike_count.text()) + (num));
+    var thisDislikeButton = function(commentId) {
+        return dislikeButton.filter('[comment-id="' + commentId + '"]');
     };
 
-    var like_cancel = function(comment_id) {
+    var likeCountInc = function (commentId, num) {
+        var likeCount = $('span.like_count[comment-id="' + commentId + '"]');
+        likeCount.text(parseInt(likeCount.text()) + (num));
+    };
+    var dislikeCountInc = function (commentId, num) {
+        var dislikeCount = $('span.dislike_count[comment-id="' + commentId + '"]');
+        dislikeCount.text(parseInt(dislikeCount.text()) + (num));
+    };
+
+    var likeCancel = function(commentId) {
         $.ajax({
             type: 'DELETE',
-            url: '/comments/like/' + comment_id,
+            url: '/comments/like/' + commentId,
             success: function() {
-                this_like_button(comment_id).removeClass('pushed');
-                like_count_inc(comment_id, -1);
+                thisLikeButton(commentId).removeClass('pushed');
+                likeCountInc(commentId, -1);
             }
         });
     };
 
-    var dislike_cancel = function(comment_id) {
+    var dislikeCancel = function(commentId) {
         $.ajax({
             type: 'DELETE',
-            url: '/comments/dislike/' + comment_id,
+            url: '/comments/dislike/' + commentId,
             success: function() {
-                this_dislike_button(comment_id).removeClass('pushed');
-                dislike_count_inc(comment_id, -1);
+                thisDislikeButton(commentId).removeClass('pushed');
+                dislikeCountInc(commentId, -1);
             }
         });
     };
 
     //like
-    like_button.live('click', function() {
+    likeButton.live('click', function() {
         var button = $(this);
-        var comment_id = button.attr('comment-id');
+        var commentId = button.attr('comment-id');
         if (button.hasClass('pushed')) {
-            like_cancel(comment_id);
+            likeCancel(commentId);
         } else {
             $.ajax({
                 type: 'POST',
-                url: '/comments/like/' + comment_id,
+                url: '/comments/like/' + commentId,
                 success: function() {
                     button.addClass('pushed');
-                    like_count_inc(comment_id, 1);
+                    likeCountInc(commentId, 1);
                 }
             });
         }
-        if (this_dislike_button(comment_id).hasClass('pushed')) {
-            dislike_cancel(comment_id);
+        if (thisDislikeButton(commentId).hasClass('pushed')) {
+            dislikeCancel(commentId);
         }
         return false;
     });
 
     //dislike
-    dislike_button.live('click', function() {
+    dislikeButton.live('click', function() {
         var button = $(this);
-        var comment_id = button.attr('comment-id');
+        var commentId = button.attr('comment-id');
         if (button.hasClass('pushed')) {
-            dislike_cancel(comment_id);
+            dislikeCancel(commentId);
         } else {
             $.ajax({
                 type: 'POST',
-                url: '/comments/dislike/' + comment_id,
+                url: '/comments/dislike/' + commentId,
                 success: function() {
                     button.addClass('pushed');
-                    dislike_count_inc(comment_id, 1);
+                    dislikeCountInc(commentId, 1);
                 }
             });
         }
-        if (this_like_button(comment_id).hasClass('pushed')) {
-            like_cancel(comment_id);
+        if (thisLikeButton(commentId).hasClass('pushed')) {
+            likeCancel(commentId);
         }
         return false;
     });
