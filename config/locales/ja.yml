@@ -6,7 +6,8 @@
 
 ja:
   panua:
-    forgot_your_password: "パスワードを忘れた？"
+    forgot_your_password: 'パスワードを忘れた？'
+    resend_confirmation_instructions: '確認メールの再送'
     words:
       bookmarks: 'ブックマーク'
       edit: '編集'
@@ -14,6 +15,7 @@ ja:
       followers: 'フォロワー'
       name: '名前'
       registration: '登録'
+      send: '送信'
       sign_in: 'ログイン'
       sign_up: 'ユーザー登録'
       submit: '保存'

@@ -1,5 +1,4 @@
-%h1
-  Forgot your password?
+%h1 #{t('panua.forgot_your_password')}
 
 = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
   = devise_error_messages!
@@ -12,6 +11,6 @@
 
   #button
     = content_tag :button, :type => :submit do
-      Send
+      = t('panua.words.send')
 
-  = render :partial => 'devise/shared/links'
+= render :partial => 'devise/shared/links'

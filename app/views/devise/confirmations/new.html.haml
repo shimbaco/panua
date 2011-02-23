@@ -1,0 +1,15 @@
+%h1 #{t('panua.resend_confirmation_instructions')}
+
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+  = devise_error_messages!
+
+  %dl
+    %dt
+      = f.label :email
+    %dd
+      = f.text_field :email, :autofocus => true
+  #button
+    = content_tag :button, :type => :submit do
+      = t('panua.words.send')
+
+= render :partial => "devise/shared/links"
