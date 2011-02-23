@@ -1,4 +1,5 @@
 config/application.yml
+config/mongoid.yml
 
 db/*.sqlite3
 log/*.log
