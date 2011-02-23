@@ -1,4 +1,4 @@
-if RAILS_ENV == 'production'
+if Rails.env.production?
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.sendgrid.net",
     :port           => "25",
