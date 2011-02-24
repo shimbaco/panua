@@ -11,6 +11,7 @@ ja:
     reset_password: 'パスワードの再設定'
     words:
       bookmarks: 'ブックマーク'
+      bookmarklet: 'ブックマークレット'
       edit: '編集'
       following: 'フォロー'
       followers: 'フォロワー'
@@ -33,6 +34,8 @@ ja:
         tags: 'タグ (カンマ区切り)'
         comment: 'コメント'
         private: '非公開'
+      bookmarklet_description: 'ブックマークを追加するためのブックマークレットもあります。'
+      bookmarklet_title: 'ブックマークする'
     comments:
       reply: '返信'
     entries:

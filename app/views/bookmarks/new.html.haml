@@ -1,3 +1,14 @@
-%h1 #{t('panua.bookmarks.new')}
+#bookmark
+  %h1 #{t('panua.bookmarks.new')}
 
-= render :partial => 'bookmarks/form'
+  %article
+    = render :partial => 'bookmarks/form'
+
+  - if params[:bookmarklet].blank?
+    %aside
+      %h1
+        = t('panua.words.bookmarklet')
+      %p
+        = t('panua.bookmarks.bookmarklet_description')
+      %p
+        = link_to t('panua.bookmarks.bookmarklet_title'), 'javascript:%28function%28%29%7Bvar%20q%3Dlocation.href%3Bvar%20p%3Ddocument.title%3Bvoid%28open%28%27http%3A%2F%2Fpanua.heroku.com%2Fbookmarks%2Fnew%3Furl%3D%27%2BencodeURIComponent%28q%29%2B%27%26title%3D%27%2BencodeURIComponent%28p%29%2B%27%26bookmarklet%3Dtrue%27%2C%27Panua%27%2C%27toolbar%3Dno%2Cwidth%3D500%2Cheight%3D700%27%29%29%3B%7D%29%28%29%0D'
