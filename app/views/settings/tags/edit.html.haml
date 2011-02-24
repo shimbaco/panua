@@ -6,17 +6,17 @@
         = f.error_messages
         %dl
           %dt
-            = f.label :name, t('panua.words.name')
+            = f.label :name
           %dd
             = f.text_field :name
         %dl
           %dt
-            = f.label :phonetic_name, t('panua.tags.attributes.phonetic_name')
+            = f.label :phonetic_name
           %dd
             = f.text_field :phonetic_name
         %dl
           %dt
-            = f.label :about, t('panua.tags.attributes.about')
+            = f.label :about
           %dd
             = f.text_field :about
         #button
@@ -24,5 +24,5 @@
             = t('panua.words.submit')
 
     = render :layout => 'settings/sidebar' do
-      %h1 #{t('panua.tags.attributes.phonetic_name')}
+      %h1 #{t('panua.settings.tags.phonetic_name.title')}
       %p #{t('panua.settings.tags.phonetic_name.body')}

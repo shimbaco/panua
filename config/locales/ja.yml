@@ -71,15 +71,12 @@ ja:
     settings:
       tags:
         phonetic_name:
+          title: '補完名について'
           body: 'ブックマークを追加するとき、この値を使用してタグの名前を補完します。'
       users:
         profile_image:
           title: 'プロフィール画像について'
           body_html: 'プロフィール画像には%{url}を使用しています。使用しているメールアドレスは %{email} です。'
-    tags:
-      attributes:
-        phonetic_name: '補完名について'
-        about: '説明'
     users:
       attributes:
         screen_name: 'ユーザー名'
@@ -108,6 +105,12 @@ ja:
 
   activemodel:
     attributes:
+      comment:
+        body: 'コメント'
+      tag:
+        name: '名前'
+        phonetic_name: '補完名'
+        about: '説明'
       user:
         login: "ユーザー名またはメールアドレス"
         email: "メールアドレス"
@@ -115,8 +118,6 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード (確認)'
         remember_me: 'ログイン情報を保存する'
-      comment:
-        body: 'コメント'
     errors:
       messages:
         taken: "はすでに存在します。"
