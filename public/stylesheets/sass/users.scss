@@ -21,6 +21,7 @@
 #profile {
     #info {
         height: 135px;
+        margin-bottom: 20px;
 
         #left {
             width: 100px;
@@ -33,7 +34,7 @@
         }
         #right {
             width: 590px;
-            float: right;
+            float: left;
             padding: 1px 5px;
 
             div#name {
@@ -55,7 +56,10 @@
     }
     #bookmark {
         clear: both;
-        margin-top: 40px;
+
+        h1 {
+            margin: 0 0 0.8em 0;
+        }
     }
 }
 

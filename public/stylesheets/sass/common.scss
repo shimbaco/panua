@@ -24,7 +24,6 @@ a {
 span.bookmark-users-count {
     color: #6f7b8b;
     text-decoration: underline;
-    font-size: 0.9em;
 }
 
 #container, #bookmarklet-container {
@@ -191,7 +190,7 @@ form {
 
 ul#bookmarks {
     li.bookmark {
-        height: 100px;
+        height: 70px;
         margin-bottom: 15px;
 
         .image {
@@ -233,6 +232,13 @@ ul#bookmarks {
             }
             .footer {
                 font-size: 0.9em;
+
+                .datetime {
+                    color: #787979;
+                }
+                .edit {
+                    margin-left: 3px;
+                }
             }
         }
     }

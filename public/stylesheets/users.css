@@ -11,7 +11,8 @@
   float: right; }
 
 #profile #info {
-  height: 135px; }
+  height: 135px;
+  margin-bottom: 20px; }
   #profile #info #left {
     width: 100px;
     float: left;
@@ -20,7 +21,7 @@
       margin-bottom: 7px; }
   #profile #info #right {
     width: 590px;
-    float: right;
+    float: left;
     padding: 1px 5px; }
     #profile #info #right div#name {
       font-size: 2em;
@@ -32,8 +33,9 @@
     #profile #info #right #url {
       margin-top: 7px; }
 #profile #bookmark {
-  clear: both;
-  margin-top: 40px; }
+  clear: both; }
+  #profile #bookmark h1 {
+    margin: 0 0 0.8em 0; }
 
 #following li, #followers li {
   width: 700px;

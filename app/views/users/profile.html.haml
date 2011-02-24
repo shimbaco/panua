@@ -1,26 +1,26 @@
 #profile
   %section#layout
+    #info
+      #left
+        = image_tag(@user.gravatar_image_path(100))
+        - if user_signed_in?
+          .follow-state
+            - if @user != current_user
+              = render 'users/follow_state', {:user => @user}
+      #right
+        #name
+          %span#screen_name
+            = @user.screen_name
+          %span#name
+            -if @user.name.present?
+              = @user.name
+        - if @user.bio.present?
+          #bio
+            = @user.bio
+        - if @user.url.present?
+          #url
+            = link_to @user.url, @user.url
     %article
-      #info
-        #left
-          = image_tag(@user.gravatar_image_path(100))
-          - if user_signed_in?
-            .follow-state
-              - if @user != current_user
-                = render 'users/follow_state', {:user => @user}
-        #right
-          #name
-            %span#screen_name
-              = @user.screen_name
-            %span#name
-              -if @user.name.present?
-                = @user.name
-          - if @user.bio.present?
-            #bio
-              = @user.bio
-          - if @user.url.present?
-            #url
-              = link_to @user.url, @user.url
       #bookmark
         %h1 #{t('panua.words.bookmarks')}
         - if @bookmarks.present?
