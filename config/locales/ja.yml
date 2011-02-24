@@ -115,6 +115,8 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード (確認)'
         remember_me: 'ログイン情報を保存する'
+      comment:
+        body: 'コメント'
     errors:
       messages:
         taken: "はすでに存在します。"
