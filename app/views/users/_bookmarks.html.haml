@@ -14,7 +14,7 @@
         - if user_signed_in? && params[:action] == 'profile' && b.user == current_user
           %p.note
             = b.note
-        - elsif b.comments.present?
+        - if b.comments.present?
           .comment
             = simple_format(auto_link_urls(h(b.comments[0].body)))
         .footer

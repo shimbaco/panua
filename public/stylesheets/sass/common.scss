@@ -190,8 +190,8 @@ form {
 
 ul#bookmarks {
     li.bookmark {
-        height: 70px;
         margin-bottom: 15px;
+        overflow:auto; /*ボックスの高さを拡張*/
 
         .image {
             float: left;
@@ -213,7 +213,7 @@ ul#bookmarks {
                 margin-bottom: 7px;
             }
             ul.tags {
-                margin-bottom: 10px;
+                margin-bottom: 5px;
                 
                 li {
                     display: inline;
@@ -221,6 +221,13 @@ ul#bookmarks {
                     a {
                     color: #2c6997;
                     }
+                }
+            }
+            .comment {
+                margin-bottom: 5px;
+
+                p {
+                    line-height: 1.4em;
                 }
             }
             .user {
