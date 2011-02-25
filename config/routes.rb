@@ -11,6 +11,7 @@ Panua::Application.routes.draw do
   delete '/comments/:type/:id' => 'comments#vote_cancel', :type => /(like|dislike)/, :as => :vote_comment_cancel
 
   # Bookmark
+  get '/bookmarks/get_page_title' => 'bookmarks#get_page_title'
   resources :bookmarks
 
   # Setting

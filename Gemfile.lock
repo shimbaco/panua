@@ -1,3 +1,17 @@
+GIT
+  remote: git://github.com/jnicklas/capybara.git
+  revision: 04360cc2918338564a17971f8691f79bbc9172c9
+  specs:
+    capybara (0.4.1.1)
+      celerity (>= 0.7.9)
+      culerity (>= 0.2.4)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (>= 0.0.27)
+      xpath (~> 0.1.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -33,17 +47,8 @@ GEM
     bson (1.2.1)
     bson_ext (1.2.1)
     builder (2.1.2)
-    capybara (0.4.1.2)
-      celerity (>= 0.7.9)
-      culerity (>= 0.2.4)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      selenium-webdriver (>= 0.0.27)
-      xpath (~> 0.1.3)
-    celerity (0.8.7)
-    childprocess (0.1.6)
+    celerity (0.8.8)
+    childprocess (0.1.7)
       ffi (~> 0.6.3)
     cucumber (0.10.0)
       builder (>= 2.1.2)
@@ -123,7 +128,7 @@ GEM
       railties (~> 3.0)
       rspec (~> 2.5.0)
     rubyzip (0.9.4)
-    selenium-webdriver (0.1.2)
+    selenium-webdriver (0.1.3)
       childprocess (~> 0.1.5)
       ffi (~> 0.6.3)
       json_pure
@@ -145,7 +150,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext (= 1.2.1)
-  capybara
+  capybara!
   cucumber-rails
   database_cleaner (= 0.6.0)
   devise (= 1.1.5)

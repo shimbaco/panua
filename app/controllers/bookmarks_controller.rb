@@ -7,6 +7,7 @@ class BookmarksController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html
+  respond_to :json, :only => :get_page_title
 
   def new
     @tags = Tag.to_json current_user
@@ -89,6 +90,10 @@ class BookmarksController < ApplicationController
       return redirect_to home_path
     end
     respond_with @bookmark
+  end
+
+  def get_page_title
+    respond_with :title => page_title(params[:url])
   end
 
   private

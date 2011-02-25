@@ -6,6 +6,8 @@ ul.ui-autocomplete li.ui-menu-item {
 #bookmark article {
   width: 600px;
   float: left; }
+  #bookmark article dt#title img {
+    display: inline-block; }
 #bookmark aside {
   width: 340px;
   float: right;
