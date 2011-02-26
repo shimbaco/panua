@@ -8,6 +8,7 @@ describe CommentsController do
   let(:bookmark) { Factory.create(:bookmark) }
 
   before do
+    user.confirm!
     sign_in user
   end
 

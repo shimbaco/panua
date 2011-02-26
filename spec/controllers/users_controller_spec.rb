@@ -13,6 +13,7 @@ describe UsersController do
   let(:bookmark3) { Factory.create(:bookmark, :url => 'http://twitter.com/fuga') }
 
   before do
+    user1.confirm!
     sign_in user1
     user1.following << user2
     user1.following << user3

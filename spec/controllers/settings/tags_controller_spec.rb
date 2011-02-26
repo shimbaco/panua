@@ -6,6 +6,7 @@ describe Settings::TagsController do
 
   before do
     @user = Factory.create(:user)
+    @user.confirm!
     sign_in @user
     @tag1 = Factory.create(:tag, :user_id => @user.id, :name => 'hoge')
     @tag2 = Factory.create(:tag, :user_id => @user.id, :name => 'fuga')

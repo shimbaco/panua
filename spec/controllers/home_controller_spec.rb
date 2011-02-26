@@ -10,6 +10,7 @@ describe HomeController do
       let(:user) { Factory.create(:user) }
 
       before do
+        user.confirm!
         sign_in user
       end
 

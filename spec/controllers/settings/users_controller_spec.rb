@@ -6,6 +6,7 @@ describe Settings::UsersController do
 
   before do
     @user = Factory.create(:user)
+    @user.confirm!
     sign_in @user
   end
 
