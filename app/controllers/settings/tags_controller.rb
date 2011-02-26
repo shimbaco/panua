@@ -17,7 +17,7 @@ class Settings::TagsController < ApplicationController
   def update
     @tag = Tag.criteria.id(params[:id]).first
     @tag.update_attributes(params[:tag])
-    flash[:notice] = 'saved'
+    flash[:notice] = t('panua.words.saved')
     redirect_to settings_tags_path
   end
 end

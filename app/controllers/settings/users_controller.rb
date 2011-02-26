@@ -10,7 +10,7 @@ class Settings::UsersController < ApplicationController
   def update
     @user = User.criteria.id(current_user.id).first
     @user.update_attributes(params[:user])
-    flash[:notice] = 'saved'
+    flash[:notice] = t('panua.words.saved')
     redirect_to profile_path(current_user.screen_name)
   end
 end

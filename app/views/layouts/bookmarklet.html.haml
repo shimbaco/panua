@@ -2,8 +2,12 @@
 
 #bookmarklet-container
   #content
-    - flash.each do |name, msg|
-      #flash.bookmarklet #{msg}
+    - if flash[:notice]
+      #flash.notice.bookmarklet
+        %p #{flash[:notice]}
+    - if flash[:error]
+      #flash.error.bookmarklet
+        %p #{flash[:error]}
     = yield
 
 = render 'layouts/javascript'

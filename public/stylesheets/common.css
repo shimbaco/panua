@@ -126,11 +126,18 @@ form {
   margin-left: -400px;
   left: 50%;
   height: 20px;
-  background-color: #9edd8a;
+  background-color: #b4f2b7;
+  border: 1px solid #4fe24a;
   text-align: center; }
+  #flash p {
+    margin-top: 3px; }
 
 #flash.bookmarklet {
   top: 0; }
+
+#flash.error {
+  background-color: #fea8aa;
+  border: 1px solid #fe3a42; }
 
 #empty h1 {
   font-size: 1.2em; }

@@ -22,8 +22,12 @@
         %li
           = link_to t('panua.words.sign_in'), login_path
   #content
-    - flash.each do |name, msg|
-      #flash #{msg}
+    - if flash[:notice]
+      #flash.notice
+        %p #{flash[:notice]}
+    - if flash[:error]
+      #flash.error
+        %p #{flash[:error]}
     = yield
   #footer
     %ul
