@@ -10,7 +10,7 @@ class BookmarksController < ApplicationController
   respond_to :json, :only => :get_page_title
 
   def new
-    @tags = Tag.to_json current_user
+    @tags = Tag.autocompleted(current_user).to_a.to_json
     if params[:url].blank?
       @bookmark = Bookmark.new
       render :new
@@ -57,7 +57,7 @@ class BookmarksController < ApplicationController
   def edit
     @bookmark = Bookmark.find(params[:id])
     if @bookmark.user_id == current_user.id
-      @tags = Tag.to_json current_user
+      @tags = Tag.autocompleted(current_user).to_a.to_json
       @tag_str = tags_to_str(@bookmark.tags)
       if params[:bookmarklet] == 'true'
         return render :layout => 'bookmarklet'

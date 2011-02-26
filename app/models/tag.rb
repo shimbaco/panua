@@ -23,7 +23,7 @@ class Tag
   scope :tags_in, lambda {|t| where(:name => t)}
 
 
-  def self.to_json(user)
-    where(:user_id => user.id).only(:name, :phonetic_name).to_a.to_json
+  def self.autocompleted(user)
+    where(:user_id => user.id, :bookmark_ids.ne => []).only(:name, :phonetic_name)
   end
 end

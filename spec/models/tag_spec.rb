@@ -31,13 +31,16 @@ describe Tag do
     end
   end
 
-  describe '.to_json' do
+  describe '.autocompleted' do
     let(:user) { Factory.create(:user) }
-    let(:tag) { Factory.create(:tag, :user_id => @user.id) }
+    let(:bookmark) { Factory.create(:bookmark) }
+    let(:tag1) { Factory.create(:tag, :name => 'tag1', :user_id => user.id) }
+    let(:tag2) { Factory.create(:tag, :name => 'tag2', :user_id => user.id) }
 
-    it 'returns json' do
-      tags = Tag.all.only(:name, :phonetic_name).to_a
-      Tag.to_json(user).should == tags.to_json
+    it 'gets tags that has bookmark_ids' do
+      tag1.bookmarks << bookmark
+      tag2
+      Tag.autocompleted(user).count.should == 1
     end
   end
 end
