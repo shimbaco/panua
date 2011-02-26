@@ -15,6 +15,7 @@ ja:
       edit: '編集'
       following: 'フォロー'
       followers: 'フォロワー'
+      home: 'ホーム'
       name: '名前'
       registration: '登録'
       send: '送信'
@@ -39,6 +40,8 @@ ja:
       new: 'ブックマークの追加'
     comments:
       reply: '返信'
+      children:
+        new: 'コメントに返信'
     entries:
       empty:
         comments:
@@ -74,10 +77,13 @@ ja:
         body2: 'このメールに心当たりがない場合は、無視してください。'
     settings:
       tags:
+        edit: 'タグ %{name} の設定'
+        index: 'タグの設定'
         phonetic_name:
           title: '補完名について'
           body: 'ブックマークを追加するとき、この値を使用してタグの名前を補完します。'
       users:
+        edit: 'ユーザーの設定'
         profile_image:
           title: 'プロフィール画像について'
           body_html: 'プロフィール画像には%{url}を使用しています。使用しているメールアドレスは %{email} です。'
@@ -103,6 +109,8 @@ ja:
         title: '%{screen_name}がフォローしている人'
       followers:
         title: '%{screen_name}をフォローしている人'
+      profile:
+        title: '%{screen_name}のブックマーク'
     will_paginate:
       prev: '前のページ'
       next: '次のページ'

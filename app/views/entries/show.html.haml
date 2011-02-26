@@ -1,3 +1,6 @@
+- content_for :page_title do
+  = @entry.title
+
 #entry
   %h1
     = link_to @entry.title, @entry.url

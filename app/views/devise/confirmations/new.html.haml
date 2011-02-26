@@ -1,3 +1,6 @@
+- content_for :page_title do
+  = t('panua.resend_confirmation_instructions')
+
 %h1 #{t('panua.resend_confirmation_instructions')}
 
 = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|

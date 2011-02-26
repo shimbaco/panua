@@ -1,3 +1,6 @@
+- content_for :page_title do
+  = t('panua.settings.tags.edit', :name => @tag.name)
+
 #settings
   = render 'settings/header'
   %section

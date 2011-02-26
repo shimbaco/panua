@@ -1,3 +1,6 @@
+- content_for :page_title do
+  = t('panua.words.sign_up')
+
 %h1 #{t('panua.words.sign_up')}
 
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|

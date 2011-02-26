@@ -1,3 +1,6 @@
+- content_for :page_title do
+  = t('panua.users.followers.title', :screen_name => @user.screen_name)
+
 #followers
   %h1 #{t('panua.users.followers.title', :screen_name => @user.screen_name)}
   - if @user.followers.present?
