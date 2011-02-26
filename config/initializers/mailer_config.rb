@@ -1,12 +1,12 @@
 if Rails.env.development?
   ActionMailer::Base.smtp_settings = {
-    :address              => ApplicationSettings.smtp_address,
-    :port                 => ApplicationSettings.smtp_port,
-    :domain               => ApplicationSettings.smtp_domain,
-    :user_name            => ApplicationSettings.smtp_user_name,
-    :password             => ApplicationSettings.smtp_password,
-    :authentication       => ApplicationSettings.smtp_authentication,
-    :enable_starttls_auto => ApplicationSettings.smtp_enable_starttls_auto
+    :address              => ApplicationSettings.smtp.address,
+    :port                 => ApplicationSettings.smtp.port,
+    :domain               => ApplicationSettings.smtp.domain,
+    :user_name            => ApplicationSettings.smtp.user_name,
+    :password             => ApplicationSettings.smtp.password,
+    :authentication       => ApplicationSettings.smtp.authentication,
+    :enable_starttls_auto => ApplicationSettings.smtp.enable_starttls_auto
   }
 #elsif Rails.env.production?
 #  ActionMailer::Base.smtp_settings = {
