@@ -3,8 +3,7 @@
 #bookmarklet-container
   #content
     - flash.each do |name, msg|
-      %p
-        = msg
+      #flash.bookmarklet #{msg}
     = yield
 
 = render 'layouts/javascript'

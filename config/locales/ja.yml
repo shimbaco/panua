@@ -26,8 +26,7 @@ ja:
       url: 'URL'
       users: 'ユーザー'
     bookmarks:
-      edit: 'ブックマークの編集'
-      new: 'ブックマークの追加'
+      already_existed: 'このページはすでにブックマークされています'
       attributes:
         title: 'タイトル'
         note: 'ノート'
@@ -36,6 +35,8 @@ ja:
         private: '非公開'
       bookmarklet_description: 'ブックマークを追加するためのブックマークレットもあります。'
       bookmarklet_title: 'ブックマークする'
+      edit: 'ブックマークの編集'
+      new: 'ブックマークの追加'
     comments:
       reply: '返信'
     entries:

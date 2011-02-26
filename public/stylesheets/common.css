@@ -129,6 +129,9 @@ form {
   background-color: #9edd8a;
   text-align: center; }
 
+#flash.bookmarklet {
+  top: 0; }
+
 #empty h1 {
   font-size: 1.2em; }
 

@@ -17,7 +17,7 @@ class BookmarksController < ApplicationController
     else
       b = current_user.bookmarks.where(:url => params[:url]).first
       if b.present?
-        flash[:notice] = t('panua.bookmark.already_existed')
+        flash[:notice] = t('panua.bookmarks.already_existed')
         return redirect_to edit_bookmark_path(b.id) + '?bookmarklet=true'
       end
       @bookmark = Bookmark.new(:url => params[:url], :title => params[:title])
@@ -32,7 +32,7 @@ class BookmarksController < ApplicationController
     if @bookmark.valid?
       b = current_user.bookmarks.where(:url => bookmark[:url]).first
       if b.present?
-        flash[:notice] = t('panua.bookmark.already_existed')
+        flash[:notice] = t('panua.bookmarks.already_existed')
         return redirect_to edit_bookmark_path(b.id)
       end
 
