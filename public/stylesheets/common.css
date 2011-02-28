@@ -143,7 +143,7 @@ form {
   font-size: 1.2em; }
 
 ul#bookmarks li.bookmark {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   overflow: auto;
   /*ボックスの高さを拡張*/ }
   ul#bookmarks li.bookmark .image {
