@@ -16,5 +16,7 @@
         %b #{t('panua.home.index.features._3.title')}
         %p #{t('panua.home.index.features._3.body_html', :link => link_to('このようになっています', 'http://twitter.com/bojovs'))}
   %aside
-    %h1 #{t('panua.home.index.latest_bookmarks')}
+    %h1 #{t('panua.words.public_timeline')}
     = render 'users/bookmarks'
+    %p.see-more
+      = link_to t('panua.words.see_more'), home_public_timeline_path

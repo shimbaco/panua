@@ -13,6 +13,8 @@
         %li
           = link_to "#{current_user.screen_name}", profile_path(current_user.screen_name)
         %li
+          = link_to t('panua.words.public_timeline'), home_public_timeline_path
+        %li
           = link_to t('panua.layouts.settings'), settings_edit_user_path
         %li
           = link_to t('panua.layouts.logout'), logout_path

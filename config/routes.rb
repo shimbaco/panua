@@ -1,5 +1,8 @@
 Panua::Application.routes.draw do
 
+  # Home
+  get '/public_timeline' => 'home#public_timeline', :as => :home_public_timeline
+
   # Entry
   resources :entries, :only => :show
 

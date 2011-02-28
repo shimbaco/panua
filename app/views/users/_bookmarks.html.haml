@@ -2,7 +2,7 @@
   - @bookmarks.each do |b|
     %li.bookmark
       .image
-        - if params[:action] == 'index' || params[:action] == 'home'
+        - if ['index', 'home', 'public_timeline'].include?(params[:action])
           = image_tag(b.user.gravatar_image_path(50))
       .data
         .link
@@ -18,7 +18,7 @@
           .comment
             = simple_format(auto_link_urls(h(b.comments[0].body)))
         .footer
-          - if params[:action] == 'index' || params[:action] == 'home'
+          - if ['index', 'home', 'public_timeline'].include?(params[:action])
             .user
               %span.screen_name
                 = link_to b.user.screen_name, profile_path(b.user.screen_name)

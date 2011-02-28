@@ -31,4 +31,17 @@ describe HomeController do
       end
     end
   end
+
+  describe '#public_timeline' do
+    before do
+      Factory.create(:bookmark, :url => 'http://twitter.com/bojovs1')
+      Factory.create(:bookmark, :url => 'http://twitter.com/bojovs2')
+      Factory.create(:bookmark, :url => 'http://twitter.com/bojovs3', :private => true)
+    end
+
+    it 'returns public bookmarks' do
+      get :public_timeline
+      assigns(:bookmarks).count.should == 2
+    end
+  end
 end

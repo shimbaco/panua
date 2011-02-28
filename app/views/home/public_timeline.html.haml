@@ -1,0 +1,8 @@
+- content_for :page_title do
+  = t('panua.words.public_timeline')
+
+#home
+  %article
+    %h1 #{t('panua.words.public_timeline')}
+    - if @bookmarks.present?
+      = render 'users/bookmarks'

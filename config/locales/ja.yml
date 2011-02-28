@@ -17,8 +17,10 @@ ja:
       followers: 'フォロワー'
       home: 'ホーム'
       name: '名前'
+      public_timeline: 'みんなのブックマーク'
       registration: '登録'
       saved: '保存しました'
+      see_more: 'もっと見る'
       send: '送信'
       sign_in: 'ログイン'
       sign_up: 'ユーザー登録'
@@ -61,7 +63,6 @@ ja:
           _3:
             title: 'エントリーページで他の人のコメントを見ることができます。'
             body_html: 'そのページに対して他の人がどう思ったのかを知ることができます。コメントに返信をしたり、好きなコメントに一票投じることもできます。例えばこのページのエントリーページは%{link}。'
-        latest_bookmarks: '最新ブックマーク'
     layouts:
       title: 'Panua - ソーシャルブックマーク'
       logout: "ログアウト"
