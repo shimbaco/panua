@@ -64,11 +64,12 @@ ja:
             title: 'エントリーページで他の人のコメントを見ることができます。'
             body_html: 'そのページに対して他の人がどう思ったのかを知ることができます。コメントに返信をしたり、好きなコメントに一票投じることもできます。例えばこのページのエントリーページは%{link}。'
     layouts:
-      title: 'Panua - ソーシャルブックマーク'
-      logout: "ログアウト"
       add: '追加'
       home: 'ホーム'
+      logout: "ログアウト"
+      public_timeline_shorten: 'みんな'
       settings: '設定'
+      title: 'Panua - ソーシャルブックマーク'
       written_by: '製作 : '
     mailer:
       hello: 'こんにちは、%{screen_name}さん'
