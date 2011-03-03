@@ -11,23 +11,23 @@
       %h1 コメント
       - if @comments.present?
         .parents
-          - @comments.desc(:score).each do |c1|
+          - @comments.desc(:score).desc(:created_at).each do |c1|
             = render 'entries/comments', {:c => c1, :last => false}
             - if c1.children.present?
               .children
-                - c1.children.desc(:score).each do |c2|
+                - c1.children.desc(:score).desc(:created_at).each do |c2|
                   = render 'entries/comments', {:c => c2, :last => false}
                   - if c2.children.present?
                     .children
-                      - c2.children.desc(:score).each do |c3|
+                      - c2.children.desc(:score).desc(:created_at).each do |c3|
                         = render 'entries/comments', {:c => c3, :last => false}
                         - if c3.children.present?
                           .children
-                            - c3.children.desc(:score).each do |c4|
+                            - c3.children.desc(:score).desc(:created_at).each do |c4|
                               = render 'entries/comments', {:c => c4, :last => false}
                               - if c4.children.present?
                                 .children
-                                  - c4.children.desc(:score).each do |c5|
+                                  - c4.children.desc(:score).desc(:created_at).each do |c5|
                                     = render 'entries/comments', {:c => c5, :last => true}
 
       - else

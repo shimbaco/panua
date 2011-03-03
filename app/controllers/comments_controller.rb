@@ -27,12 +27,15 @@ class CommentsController < ApplicationController
     @comment = Comment.new(:body => params[:comment][:body])
     if @comment.valid?
       @parent_comment = Comment.criteria.id(params[:parent_id]).first
-      @child_comment = @parent_comment.children.create(:user_id => current_user.id, :body => params[:comment][:body])
-      current_user.comments << @child_comment
       @entry = Entry.criteria.id(params[:entry_id]).first
-      @entry.comments << @child_comment
       @bookmark = current_user.bookmarks.where(:entry_id => params[:entry_id]).first
+
+      @child_comment = Comment.create(:body => params[:comment][:body])
+      @parent_comment.children << @child_comment
+      current_user.comments << @child_comment
+      @entry.comments << @child_comment
       @bookmark.comments << @child_comment if @bookmark
+
       return redirect_to entry_path(params[:entry_id])
     end
     redirect_to new_child_comment_path(params[:parent_id])
