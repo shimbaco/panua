@@ -15,7 +15,7 @@
             = c.user.bio.to_s.truncate(30)
       .bottom
         %span.datetime
-          = l(c.created_at)
+          = little_time_ago_in_words(c.created_at)
         - if user_signed_in? && last == false
           %span.reply
             = link_to t('panua.comments.reply'), new_child_comment_path(c.id)

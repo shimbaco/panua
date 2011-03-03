@@ -253,11 +253,11 @@ ja:
         one:   "1分以内"
         other: "%{count}分以内"
       x_minutes:
-        one:   "1分"
-        other: "%{count}分"
+        one:   "1分前"
+        other: "%{count}分前"
       about_x_hours:
-        one:   "約1時間"
-        other: "約%{count}時間"
+        one:   "約1時間前"
+        other: "約%{count}時間前"
       x_days:
         one:   "1日"
         other: "%{count}日"

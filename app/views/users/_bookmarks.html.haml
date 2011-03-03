@@ -26,7 +26,7 @@
                 - if b.user.name.present?
                   = b.user.name
           %span.datetime
-            = l(b.created_at)
+            = little_time_ago_in_words(b.created_at)
           %span.bookmark-users-count
             = link_to b.entry.bookmark_ids.count.to_s + (b.entry.bookmark_ids.count > 1 ? ' users' : ' user'), entry_path(b.entry_id)
           - if b.user.id == current_user.try(:id)
