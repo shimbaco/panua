@@ -56,6 +56,30 @@ class User
     "http://www.gravatar.com/avatar/#{hash}?#{params}"
   end
 
+  def remove_bookmark(bookmark_id)
+    bookmark = Bookmark.criteria.id(bookmark_id).first
+    if bookmark.blank? || bookmark.user_id != self.id
+      return false
+    end
+    user = bookmark.user
+    entry = bookmark.entry
+    tags = bookmark.tags
+    comments = Comment.where(:bookmark_id => bookmark.id)
+    user.bookmark_ids.delete(bookmark.id)
+    entry.bookmark_ids.delete(bookmark.id)
+    user.save
+    entry.save
+    tags.each do |t|
+      t.bookmark_ids.delete(bookmark.id)
+      t.save
+    end
+    comments.each do |c|
+      c.bookmark_id = nil
+      c.save
+    end
+    bookmark.delete
+  end
+
   protected
     def self.find_for_database_authentication(conditions)
       value = conditions[authentication_keys.first]

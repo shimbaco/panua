@@ -44,6 +44,7 @@ class BookmarksController < ApplicationController
       @entry.save
 
       @bookmark.add_tags!(split_tag_str(params[:tag_name]), current_user.id) if params[:tag_name].present?
+      @bookmark.reconnect_to_comments!(current_user, @entry)
 
       if params[:bookmarklet] == 'true'
         return render :bsaved, :layout => 'bookmarklet'
@@ -90,6 +91,13 @@ class BookmarksController < ApplicationController
       return redirect_to home_path
     end
     respond_with @bookmark
+  end
+
+  def destroy
+    if current_user.remove_bookmark(params[:id])
+      return render(:nothing => true, :status => 200)
+    end
+    render(:nothing => true, :status => 400)
   end
 
   def get_page_title

@@ -1,6 +1,6 @@
 %ul#bookmarks{:class => params[:action] == 'index' && 'home-index'}
   - @bookmarks.each do |b|
-    %li.bookmark
+    %li.bookmark{:bookmark_id => b.id}
       .image
         - if ['index', 'home', 'public_timeline'].include?(params[:action])
           = image_tag(b.user.gravatar_image_path(50))
@@ -32,3 +32,5 @@
           - if b.user.id == current_user.try(:id)
             %span.edit
               = link_to t('panua.words.edit'), edit_bookmark_path(b.id)
+            %span.destroy{:bookmark_id => b.id}
+              = link_to t('panua.words.destroy'), '#'

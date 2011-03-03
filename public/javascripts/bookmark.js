@@ -13,4 +13,19 @@
             });
         }
     });
+
+    removeBookmark = function(confirmMessage) {
+        $('span.destroy').click(function() {
+            if (confirm(confirmMessage)) {
+                var bookmarkId = $(this).attr('bookmark_id');
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/bookmarks/' + bookmarkId,
+                    success: function() {
+                        $('li.bookmark[bookmark_id=' + bookmarkId + ']').fadeOut();
+                    }
+                });
+            }
+        });
+    };
 })(jQuery);

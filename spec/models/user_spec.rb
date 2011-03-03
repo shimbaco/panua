@@ -97,4 +97,63 @@ describe User do
       user1.gravatar_image_path.should == 'http://www.gravatar.com/avatar/9d6736bf0654a8649c35db94af65de03?d=mm&s=80'
     end
   end
+
+  describe '#remove_bookmark' do
+    let(:entry) { Factory.create(:entry) }
+    let(:bookmark) { Factory.create(:bookmark) }
+    let(:tag) { Factory.create(:tag) }
+    let(:comment) { Factory.create(:comment) }
+
+    before do
+      user1.bookmarks << bookmark
+      entry.bookmarks << bookmark
+      bookmark.tags << tag
+      bookmark.comments << comment
+      entry.comments << comment
+    end
+
+    context 'valid' do
+      before do
+        user1.remove_bookmark(bookmark.id.to_s)
+      end
+
+      it 'removes the bookmark' do
+        Bookmark.count.should == 0
+      end
+
+      it 'removes the relation between bookmark and user' do
+        user1.reload.bookmark_ids.count.should == 0
+      end
+
+      it 'removes the relation between bookmark and entry' do
+        entry.reload.bookmark_ids.count.should == 0
+      end
+
+      it 'removes the relation between bookmark and tag' do
+        tag.reload.bookmark_ids.count.should == 0
+      end
+
+      it 'removes the relation between bookmark and comment' do
+        comment.reload.bookmark_id.should == nil
+      end
+
+      it 'remains of the tag' do
+        Tag.count.should == 1
+      end
+
+      it 'remains of the comment' do
+        Comment.count.should == 1
+      end
+
+      it 'remains of the relation between entry and comment' do
+        entry.reload.comment_ids.count.should == 1
+      end
+    end
+
+    context 'invalid' do
+      it 'returns false' do
+        user1.remove_bookmark('aaaaaaaaaaaaaaaaaaaaaaaa').should be_false
+      end
+    end
+  end
 end

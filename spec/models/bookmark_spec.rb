@@ -67,4 +67,24 @@ describe Bookmark do
       tag.bookmark_ids.count.should == 0
     end
   end
+
+  describe '#reconnect_to_comments!' do
+    let(:user) { Factory.create(:user) }
+    let(:entry) { Factory.create(:entry) }
+    let(:bookmark) { Factory.create(:bookmark) }
+    let(:comment) { Factory.create(:comment, :body => 'comment', :user_id => user.id, :entry_id => entry.id, :bookmark_id => nil) }
+
+    before do
+      comment
+      bookmark.reconnect_to_comments!(user, entry)
+    end
+
+    it 'saves bookmark_id' do
+      comment.reload.bookmark_id.should == bookmark.id
+    end
+
+    it 'saves comment_ids in bookmark' do
+      bookmark.comments.count.should == 1
+    end
+  end
 end

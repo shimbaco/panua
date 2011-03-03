@@ -30,48 +30,65 @@ describe BookmarksController do
   end
 
   describe '#create' do
-    let(:bookmark1) {
-      {:url => 'http://twitter.com/bojovs',
-       :title => 'bojovs::twitter'}
-    }
-    let(:bookmark2) {
-      {:url => 'http://www.google.com/profiles/bojovs',
-       :title => 'bojovs::Google Profile'}
-    }
+    let(:bookmark1) { {:url => 'http://example.com/1', :title => 'example1'} }
+    let(:bookmark2) { {:url => 'http://example.com/2', :title => 'example2'} }
 
-    before do
-      @bookmark = Factory.create(:bookmark)
-      @user.bookmarks << @bookmark
-    end
+    context 'valid' do
+      let(:entry) { Factory.create(:entry, :url => 'http://example.com/1', :title => 'example1') }
+      let(:params1) { {:bookmark => bookmark1, :tag_name => 'hoge, fuga', :comment_body => 'comment1'} }
+      let(:params2) { {:bookmark => bookmark2, :tag_name => 'foo, bar', :comment_body => 'comment2'} }
+      let(:comment) { Factory.create(:comment, :user_id => @user.id, :entry_id => entry.id) }
 
-    it 'redirects to #edit if bookmark is already saved' do
-      post :create, :bookmark => bookmark1
-      response.should redirect_to edit_bookmark_path(:id => @bookmark.id)
-    end
-
-    context 'creates bookmark, tags, comment' do
-      let(:params) {{:bookmark => bookmark2, :tag_name => 'hoge, fuga', :comment_body => 'comment.'}}
-
-      before do
-        post :create, params
+      it 'saves a bookmark' do
+        post :create, params1
+        Bookmark.all.count.should == 1
       end
 
-      it 'should save bookmark' do
-        Bookmark.all.count.should == 2
+      it 'saves 2 tags' do
+        post :create, params1
+        bookmark = Bookmark.where(:user_id => @user.id, :url => bookmark1[:url]).first
+        bookmark.tags.count.should == 2
       end
 
-      it 'should have 2 tags' do
-        b = Bookmark.where(:user_id => @user.id, :url => bookmark2[:url]).first
-        b.tags.count.should == 2
+      it 'saves a comment' do
+        post :create, params1
+        entry = Entry.where(:url => bookmark1[:url]).first
+        entry.comments.count.should == 1
       end
 
-      it 'should save comment' do
-        e = Entry.where(:url => bookmark2[:url]).first
-        e.comments.count.should == 1
+      it 'saves a new entry' do
+        post :create, params2
+        entry = Entry.where(:url => bookmark2[:url]).first
+        entry.present?.should be_true
+      end
+
+      it 'saves a relation between bookmark and entry' do
+        entry
+        post :create, params1
+        entry.reload.bookmarks.count.should == 1
+      end
+
+      it 'saves bookmark_id in comment which bookmark was removed' do
+        comment
+        post :create, params1
+        comment.reload.bookmark_id.present?.should be_true
       end
 
       it 'redirects to home_path' do
+        post :create, params1
         response.should redirect_to home_path
+      end
+    end
+
+    context 'invalid' do
+      before do
+        @bookmark = Factory.create(:bookmark, :url => 'http://example.com/1')
+        @user.bookmarks << @bookmark
+      end
+
+      it 'redirects to #edit if bookmark is already saved' do
+        post :create, :bookmark => bookmark1
+        response.should redirect_to edit_bookmark_path(:id => @bookmark.id)
       end
     end
   end
@@ -128,6 +145,40 @@ describe BookmarksController do
         put :update, @bookmark_params
         bookmark = Bookmark.where(:url => 'http://twitter.com/bojovs').first
         bookmark.title.should == 'bojovs twitter'
+      end
+    end
+  end
+
+  describe '#destroy' do
+    let(:entry) { Factory.create(:entry) }
+    let(:bookmark1) { Factory.create(:bookmark) }
+    let(:bookmark2) { Factory.create(:bookmark, :user_id => BSON::ObjectId.from_string('aaaaaaaaaaaaaaaaaaaaaaaa')) }
+
+    before do
+      entry.bookmarks << bookmark1
+      entry.bookmarks << bookmark2
+    end
+
+    context 'valid bookmark.id' do
+      before do
+        @user.bookmarks << bookmark1
+        delete :destroy, {:id => bookmark1.id.to_s}
+      end
+      
+      it 'returns 200' do
+        response.code.should == '200'
+      end
+    end
+
+    context 'invalid bookmark.id' do
+      it 'returns 400 when bookmark_id is not existed' do
+        delete :destroy, {:id => 'bbbbbbbbbbbbbbbbbbbbbbbb'}
+        response.code.should == '400'
+      end
+
+      it 'returns 400 when bookmark is not mine' do
+        delete :destroy, {:id => bookmark2.id.to_s}
+        response.code.should == '400'
       end
     end
   end

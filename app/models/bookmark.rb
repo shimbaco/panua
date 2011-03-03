@@ -41,4 +41,14 @@ class Bookmark
       tag.save
     end
   end
+
+  # 削除したブックマークに付いていたコメントと新たに保存し直した同じURLのブックマークを再び関連付ける
+  def reconnect_to_comments!(user, entry)
+    comments = Comment.where(:user_id => user.id, :entry_id => entry.id, :bookmark_id => nil)
+    if comments.present?
+      comments.each do |c|
+        self.comments << c
+      end
+    end
+  end
 end

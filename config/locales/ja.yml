@@ -12,6 +12,8 @@ ja:
     words:
       bookmarks: 'ブックマーク'
       bookmarklet: 'ブックマークレット'
+      destroy: '削除'
+      destroy_confirm: '削除しますか？'
       edit: '編集'
       following: 'フォロー'
       followers: 'フォロワー'
