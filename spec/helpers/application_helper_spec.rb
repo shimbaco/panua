@@ -17,7 +17,7 @@ describe ApplicationHelper do
   describe 'little_time_ago_in_words' do
     it 'returns words because the datetime is within 24 hours' do
       datetime = Time.now - 5.hours
-      helper.little_time_ago_in_words(datetime).should == '約5時間'
+      helper.little_time_ago_in_words(datetime).should == '約5時間前'
     end
 
     it 'returns datetime string because the datetime is without 24 hours' do
