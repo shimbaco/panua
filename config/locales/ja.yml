@@ -17,6 +17,7 @@ ja:
       edit: '編集'
       following: 'フォロー'
       followers: 'フォロワー'
+      hatena: 'はてな'
       home: 'ホーム'
       name: '名前'
       public_timeline: 'みんなのブックマーク'
@@ -81,6 +82,19 @@ ja:
         body1: '下のURLからパスワードの再設定ができます。'
         body2: 'このメールに心当たりがない場合は、無視してください。'
     settings:
+      services:
+        connect:
+          cannot_connected: 'エラーが発生したため認証できませんでした'
+          connect: '連携する'
+          connected: '連携しました'
+          connecting: 'アカウント「%{nickname}」と連携しています。'
+          stop_connecting: '連携を止める'
+          stoped_connecting: '連携を解除しました'
+        index: '外部サービス'
+        providers:
+          hatena:
+            title: 'はてなとの連携'
+            body: 'はてなのアカウントと連携することで、Panua上でブックマークを追加するとき、同じ内容をはてなブックマークにも保存することができるようになります。'
       tags:
         edit: 'タグ %{name} の設定'
         index: 'タグの設定'

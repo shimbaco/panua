@@ -6,6 +6,7 @@ gem 'mongoid', '2.0.0.beta.20'
 gem 'bson_ext', '1.2.4'
 
 gem 'devise', '1.1.5'
+gem 'oauth'
 
 gem 'haml', '3.0.25'
 #gem 'sass', '3.1.0.alpha.21'

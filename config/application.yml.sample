@@ -8,6 +8,10 @@ defaults: &defaults
     password: ""
     authentication: "plain"
     enable_starttls_auto: true
+  oauth_keys:
+    hatena:
+      consumer_key: ''
+      consumer_secret: ''
 
 development:
   <<: *defaults

@@ -23,6 +23,7 @@ class User
   references_many :comments, :stored_as => :array, :inverse_of => :user
   references_many :like_comments, :stored_as => :array, :inverse_of => :like_users, :class_name => 'Comment'
   references_many :dislike_comments, :stored_as => :array, :inverse_of => :dislike_users, :class_name => 'Comment'
+  references_many :services, :stored_as => :array, :inverse_of => :user
 
   # emailとscreen_name、どちらからでもログインできるように
   attr_accessor :login
@@ -78,6 +79,34 @@ class User
       c.save
     end
     bookmark.delete
+  end
+
+  def build_service(provider_name, access_token)
+    response = access_token.request(:get, 'http://n.hatena.com/applications/my.json')
+    if response.present?
+      data = JSON.parse(response.body)
+      service = Service.new do |s|
+        s.provider_name = provider_name
+        s.access_token = access_token.token
+        s.access_secret = access_token.secret
+        s.nickname = data['url_name']
+      end
+      if service.valid?
+        return service
+      end
+    end
+    nil
+  end
+
+  def remove_service(provider_name)
+    service = self.services.where(:provider_name => provider_name).first
+    if service.present?
+      service.delete
+      self.service_ids.delete(service.id)
+      self.save
+      return true
+    end
+    false
   end
 
   protected

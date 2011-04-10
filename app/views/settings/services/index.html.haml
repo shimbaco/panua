@@ -1,0 +1,21 @@
+- content_for :page_title do
+  = t('panua.settings.services.index')
+
+#settings
+  = render 'settings/header'
+  %section#services
+    %article
+      %h1.provider_name
+        = t('panua.words.hatena')
+      - if @hatena.blank?
+        = link_to t('panua.settings.services.connect.connect'), settings_services_new_path('hatena')
+      - else
+        %p
+          = t('panua.settings.services.connect.connecting', :nickname => @hatena.nickname)
+        = link_to t('panua.settings.services.connect.stop_connecting'), settings_delete_service_path('hatena')
+
+  = render :layout => 'settings/sidebar' do
+    %h1
+      = t('panua.settings.services.providers.hatena.title')
+    %p
+      = t('panua.settings.services.providers.hatena.body')

@@ -24,6 +24,11 @@ Panua::Application.routes.draw do
     put 'user/update' => 'users#update', :as => :update_user
     # Tag
     resources :tags
+    # Service
+    get 'services' => 'services#index', :as => :services
+    get 'services/:provider_name/new' => 'services#new', :as => :services_new
+    get 'services/:provider_name/create' => 'services#create', :as => :create_services
+    get 'services/:provider_name/delete' => 'services#destroy', :as => :delete_service
   end
 
   # User
